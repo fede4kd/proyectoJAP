@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
 .jumbotron, .card-body, .container, .site-header{
     font-family: 'Raleway', serif !important;
 }
@@ -158,11 +161,23 @@ a.custom-card:hover {
   margin-bottom: 50px;
 }
 
-.btn-login{
-  background-color: #d61c6c;
-  border-color: #d61c6c;
-  margin: 10px;
-  
+.btn-login {
+    font-family: 'Roboto', sans-serif;
+    background-color: #d61ca9;
+    border-color: #96109d;
+    margin: 10px;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #9707b6;
+    border-color: #8c27ac;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #8417ce;
+    border-color: #210349;
 }
 
 .products{
@@ -199,12 +214,51 @@ margin-right: 25px;
   background-color: #d61c6c ;
 }
 
-#dropdownMenuButtonUser{
-  margin: 12px 0px 0px 10px;
-  background-color: #d61c6c;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+#dropdownMenuButtonUser {
+    margin: 12px 0px 0px 10px;
+    background-color: #cf2ae7;
+    font-family: 'Roboto', sans-serif;
+}
+
+.modal-content {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #d61cb224;
+    background-clip: padding-box;
+    border: 1px solid #ff04f152;
+    border-radius: .3rem;
+    outline: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000000;
+    text-align: left;
+    background-color: #ff00b629;
+}
+
+.bg-dark {
+    background-color: #ff00b65e!important;
+}
+
+.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
+    color: #000;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #000000b3;
 }
 
 #user{
   border-radius: 50%;
 }
+
