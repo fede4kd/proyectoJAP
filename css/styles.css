@@ -140,6 +140,11 @@ a.custom-card:hover {
   color: orange;
 }
 
+.menu{
+  padding: 0px 10px 0px 10px;
+  margin: -7px 0px;
+}
+
 .avatar{
   height: 100px;
   width: 100px;
@@ -176,4 +181,30 @@ margin-top: 10px;
 .btnLogGoogle{
 margin-bottom: 10px;
 display: inline-block;
+}
+
+.logoMenu{
+margin-right: 25px;
+}
+
+.filtrosArticulos.focus.active{
+  background-color: #c40f5d !important;
+}
+
+.filtrosArticulos.active{
+  background-color: #c40f5d !important;
+}
+
+.filtrosArticulos{
+  background-color: #d61c6c ;
+}
+
+#dropdownMenuButtonUser{
+  margin: 12px 0px 0px 10px;
+  background-color: #d61c6c;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+#user{
+  border-radius: 50%;
 }
