@@ -16,8 +16,9 @@
 </head>
 
 <body>
+  <!-- Menu -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="py-2 d-none d-md-inline-block logoMenu" href="index.html">
+    <a class="py-2 d-none d-md-inline-block logoMenu" href="#">
       <img src="img/LogoCeibal4.png" width="120" height="30" class="d-inline-block align-top" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -33,7 +34,7 @@
           <a class="nav-link" href="categories.html">Categorias</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="products.html">Productos</a>
+          <a class="nav-link active border-bottom" href="products.html">Productos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="sell.html">Vender</a>
@@ -45,19 +46,20 @@
       <div class="row">
         <div id="user"></div>
         <div class="dropdown">
-          <button class="btn btn-sm btn-danger dropdown-toggle mr-2" type="button" id="dropdownMenuButtonUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-sm btn-danger dropdown-toggle mr-2" type="button" id="dropdownMenuButtonUser"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Dropdown button
           </button>
           <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Mi Perfil</a>
-            <a class="dropdown-item" href="sell.html">Ventas</a>
-            <a class="dropdown-item" href="#">Compras</a>
-            <a class="dropdown-item" href="" onclick="signOut();">Salir</a>
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="login.html" onclick="signOut();">Salir</a>
           </div>
         </div>
-    </div>
+      </div>
   </nav>
-
+  <!-- Fin Menu -->
   <div class="text-center p-4">
     <h2>Productos</h2>
     <p class="lead">Verás aquí todos los productos del sitio.</p>
@@ -65,6 +67,7 @@
   <div class="container">
     <div class="row">
       <div class="col d-flex justify-content-end">
+        <!-- Botones Filtros -->
         <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
           <label class="btn btn-danger filtrosArticulos" id="sortAsc">
             <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>$
@@ -76,11 +79,15 @@
             <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Rel.
           </label>
         </div>
+        <!-- Fin Botones Filtros -->
+        <!-- Buscador -->
         <form class="form-inline mb-4 ml-2">
-          <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+          <input class="form-control mr-sm-2" id="txtBusqueda" type="search" placeholder="Buscar" aria-label="Search">
         </form>
+        <!-- Fin Buscador -->
       </div>
     </div>
+    <!-- Fin Filtros Min y Max -->
     <div class="row justify-content-end">
       <div class="col-md-6"></div>
       <div class="col-md-6 col-sm-12 mb-1 container">
@@ -97,26 +104,31 @@
           <div class="col-3 p-0 d-inline-flex">
             <button class="btn btn-outline-danger btn-block" id="rangeFilterCount">Filtrar</button>
             <button class="btn btn-outline btn-sm" id="clearRangeFilter">Limpiar</button>
-        </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="list-group" id="cat-list-container">
-      </div>
+    <!-- Fin Filtros Min y Max -->
+  </div>
+  <div class="row">
+    <div class="list-group" id="cat-list-container">
     </div>
+  </div>
   </div>
 
 
-
+  <!-- Productos -->
   <div class="container products">
     <div class="row">
-      <div class="list-group" id="lista-productos">
-      </div>
+      <div class="list-group col-12" id="lista-productos"></div>
+    </div>
+    <div class="text-center p-5">
+      <h2 id="prodNoEncontrado"></h2>
     </div>
   </div>
+  <!-- Fin Productos -->
 
+  <!-- Footer -->
   <footer class="text-muted bg-light">
     <div class="container">
       <p class="float-right">
@@ -126,9 +138,8 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-
-
-
+  <!-- Fin Footer -->
+  <!-- Spinner -->
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -142,5 +153,6 @@
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
 </body>
+<!-- Fin Spinner -->
 
 </html>
