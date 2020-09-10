@@ -5,10 +5,11 @@ var currentProductsArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
+var cadena = "";
+var listaProductos = document.getElementById("lista-productos")
 
-var productsArray = [];
 
-
+//Filtro Productos
 function sortProducts(criteria, array){
     let result = [];
     if (criteria === ORDER_DESC_BY_COST)
@@ -44,35 +45,40 @@ function showProductsList() {
     let articulo = "";
     for (let i = 0; i < currentProductsArray.length; i++) {
         let product = currentProductsArray[i];
-
+        let nombreProd = product.name.toLowerCase();        //toma el nombre del preducto y lo paso a minusculas
+        let descProd = product.description.toLowerCase();   //toma el contenidod e la descripcion y lo paso a minusculas
 
         if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount)) &&
+            ((descProd.indexOf(cadena) !== -1 || (nombreProd.indexOf(cadena) !== -1)) )){   //si el indexOf devuelve -1 no existe el procuto con ese nombre o desc, con el or indicamos que si existe alguno de los dos muestro el procuto 
                 
                 articulo += `
-                <div class="list-group-item">
-                    <div class="row">
-                        <div class="col-3">
-                            <img src="` + product.imgSrc + `" class="img-thumbnail">
-                        </div>
-                        <div class="col">
+                <div class="d-flex container">
+                <div class="col-xl-12 col-lg-8 order-lg-2">
+                    <div class="d-flex list-group-item">
+                    <a class="border-right col-3" href="product-info.html"><div class="imgProduct"><img src="` + product.imgSrc + `"></div></a>
+                        <div class="col-xl-9">
                             <div class="d-flex w-100 justify-content-between">
-                                <h4 class="mb-1">` + product.name + `</h4>
-                                <small class="text-muted">Vendidos `+ product.soldCount + `</small>
+                            <a href="product-info.html"><h4 class="mb-1">` + product.name + `</h4></a>
+                                <small class="text-muted">` + product.soldCount + ` Vendidos</small>
                             </div>
-                            <div>` + product.description + `</div>
-                            
+                            <div class="productDesc">` + product.description + `</div>
+                            <h4>`+ product.currency + ` ` + product.cost +`</h4>
+                            <div class="product-buttons">
+                                <button class="btn btn-primary btn-sm" data-toast="" data-toast-type="success"
+                                    data-toast-position="topRight" data-toast-icon="icon-circle-check"
+                                    data-toast-title="Product" data-toast-message="successfuly added to cart!"><i class="fas fa-shopping-cart"></i> Añadir al carrito</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row col-9 float-right">
-                        <div class=""><b>`+ product.currency + ` ` + product.cost +`</b></div>
                     </div>
                 </div>
+            </div>
                 `
          }
 
-        document.getElementById("lista-productos").innerHTML = articulo;
+         listaProductos.innerHTML = articulo;
     }
+
 }
 
 function sortAndShowProducts(sortCriteria, productsArray){
@@ -91,8 +97,9 @@ function sortAndShowProducts(sortCriteria, productsArray){
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
+
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCTS_URL).then(function(resultObj){
+    getJSONData(PRODUCTS_URL).then(function(resultObj){ //Llamo al json PRODUCTOS_URL
         if (resultObj.status === "ok"){
             sortAndShowProducts(ORDER_ASC_BY_COST, resultObj.data);
         }
@@ -143,4 +150,17 @@ document.addEventListener("DOMContentLoaded", function (e) {
         showProductsList();
     });
 
-});
+    var txtBusqueda = document.getElementById("txtBusqueda"); //Capturo por id el imput para buscar
+    txtBusqueda.addEventListener("keyup", function() {       // Ejecuto mi funcion cada vez que presiona una tecla 
+        cadena = txtBusqueda.value.toLowerCase();            // convierto al texto de la busqueda en minusculas   
+        showProductsList(currentProductsArray);              // Muestro los productos
+        document.getElementById("prodNoEncontrado").innerHTML = '' //Dejo vacio el div de id = prodNoEncontrado para que no se repita el mensaje si se escriben varias letras y no las encuentra.
+
+        if (listaProductos.innerHTML === "") { //si no hay ninguna lista de productos muestro un mensaje
+            document.getElementById("prodNoEncontrado").innerHTML += "Producto no encontrado..."
+        }
+
+    });
+
+
+}); 

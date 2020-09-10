@@ -7,77 +7,83 @@ const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/pro
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
-var showSpinner = function(){
+var showSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "block";
 }
 
-var hideSpinner = function(){
+var hideSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "none";
 }
 
-var getJSONData = function(url){
-    var result = {};
-    showSpinner();
-    return fetch(url)
+var getJSONData = function (url) {
+  var result = {};
+  showSpinner();
+  return fetch(url)
     .then(response => {
       if (response.ok) {
         return response.json();
-      }else{
+      } else {
         throw Error(response.statusText);
       }
     })
-    .then(function(response) {
-          result.status = 'ok';
-          result.data = response;
-          hideSpinner();
-          return result;
+    .then(function (response) {
+      result.status = 'ok';
+      result.data = response;
+      hideSpinner();
+      return result;
     })
-    .catch(function(error) {
-        result.status = 'error';
-        result.data = error;
-        hideSpinner();
-        return result;
+    .catch(function (error) {
+      result.status = 'error';
+      result.data = error;
+      hideSpinner();
+      return result;
     });
 }
 
 var urlActual = window.location.href
 var pasoPorLogin = sessionStorage.getItem("boolean");
-var emailLog =  sessionStorage.getItem("email")
+var emailLog = sessionStorage.getItem("email")
 
 
 function irLogin() {
-  if(pasoPorLogin != "true")
-    window.location.href="login.html";
- }
+  if (pasoPorLogin != "true")
+    window.location.href = "login.html";
+}
 
- irLogin();
+irLogin();
 
- function signOut() {
-   sessionStorage.setItem("email", null)
+
+function signOut() {
+  sessionStorage.setItem("boolean", false);
+  sessionStorage.setItem("email", null);
   var auth2 = gapi.auth2.getAuthInstance();
   auth2.signOut().then(function () {
     console.log('User signed out.');
-    window.location.href="login.html";
+    window.location.href = "login.html"
   });
 }
 
-
+function onLoad() {
+  gapi.load('auth2', function() {
+    gapi.auth2.init();
+  });
+}
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
+document.addEventListener("DOMContentLoaded", function (e) {
 
-document.getElementById("dropdownMenuButtonUser").innerHTML = emailLog;
+  document.getElementById("dropdownMenuButtonUser").innerHTML = emailLog;
 
-var imgAvatar = "";
-var imgAvatarGoogle = sessionStorage.getItem("imageProfile");
-var loginGoogle = sessionStorage.getItem("loginGoogle")
+  var imgAvatar = "";
+  var imgAvatarGoogle = sessionStorage.getItem("imageProfile");
+  var loginGoogle = sessionStorage.getItem("loginGoogle")
 
-if(loginGoogle == "true") {
-  imgAvatar += `<img src= "`+ imgAvatarGoogle +`" height="57px" class="py-2"></img>`
-} else {
-  imgAvatar += `<img src="img/Avatar2.png" height="57px" class="py-2" style="border-radius: 50%"></img>`
-}
+  if (loginGoogle == "true") {
+    imgAvatar += `<img src= "` + imgAvatarGoogle + `" height="46px" style="border-radius: 50%"></img>`
+  } else {
+    imgAvatar += `<img src="img/Avatar2.png" height="46px"></img>`
+  }
 
-document.getElementById("user").innerHTML = imgAvatar;
+  document.getElementById("user").innerHTML = imgAvatar;
 });
