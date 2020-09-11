@@ -217,9 +217,11 @@ margin-right: 25px;
 
 #dropdownMenuButtonUser {
     margin: 12px 0px 0px 10px;
-    background-color: #cf2ae7;
+    background-color: #922ae7;
     font-family: 'Roboto', sans-serif;
 }
+
+
 
 .modal-content {
     position: relative;
@@ -244,11 +246,17 @@ body {
     line-height: 1.5;
     color: #000000;
     text-align: left;
-    background-color: #ff00b629;
+    background-color: #ff00b600;
 }
 
 .bg-dark {
-    background-color: #ff00b65e!important;
+    background-color: #de00ff52!important;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    border-color: #f100ff;
+    background-color: #f600ff;
 }
 
 .navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
@@ -261,6 +269,126 @@ body {
 
 #user{
   border-radius: 50%;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #7f1eb6;
+    border-color: #9535dc;
+}
+
+.btn-outline-danger:hover {
+    color: #fff;
+    background-color: #7b1aa7;
+    border-color: #6f35dc;
+}
+
+.btn-outline-danger:not(:disabled):not(.disabled).active, .btn-outline-danger:not(:disabled):not(.disabled):active, .show>.btn-outline-danger.dropdown-toggle {
+    color: #fff;
+    background-color: #6500b8;
+    border-color: #6735dc;
+}
+
+.btn-outline-danger:not(:disabled):not(.disabled).active:focus, .btn-outline-danger:not(:disabled):not(.disabled):active:focus, .show>.btn-outline-danger.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgb(53 68 220 / 50%);
+}
+
+.btn-outline-danger.focus, .btn-outline-danger:focus {
+    box-shadow: 0 0 0 0.2rem rgb(46 7 174 / 50%);
+}
+
+.btn-danger:hover {
+    color: #fff;
+    background-color: #3c17a1;
+    border-color: #4921bd;
+}
+
+.btn-danger:not(:disabled):not(.disabled).active, .btn-danger:not(:disabled):not(.disabled):active, .show>.btn-danger.dropdown-toggle {
+    color: #fff;
+    background-color: #3e088c;
+    border-color: #4312a0;
+}
+
+.btn-danger:not(:disabled):not(.disabled).active:focus, .btn-danger:not(:disabled):not(.disabled):active:focus, .show>.btn-danger.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgb(53 18 167 / 50%);
+}
+
+.filtrosArticulos.active {
+    background-color: #6a0fc4 !important;
+}
+
+.badge-primary {
+    color: #fff;
+    background-color: #de02f1;
+}
+
+a.badge-primary:focus, a.badge-primary:hover {
+    color: #fff;
+    background-color: #8300cc;
+}
+
+a:hover {
+    color: #d61cc8;
+    text-decoration: underline;
+}
+
+.badge-primary {
+    color: #fff;
+    background-color: #d300ff;
+}
+
+.btn-link:hover {
+    color: #4500b3;
+    text-decoration: underline;
+}
+
+.btn-link {
+    font-weight: 400;
+    color: #fb00ff;
+    text-decoration: none;
+}
+
+.btn-outline-primary {
+    color: #cc00ff;
+    border-color: #ce00ff;
+}
+
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #6427ce;
+    border-color: #620cbe;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show>.btn-outline-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #6900ff;
+    border-color: #6400ff;
+}
+
+.checked {
+    color: #ef02ff;
+}
+
+.btn.focus, .btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.btn-outline-danger {
+    color: #8c35dc;
+    border-color: #9535dc;
+}
+
+a {
+    color: #4f04a1;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a {
+    color: #4105a1;
+    text-decoration: none;
+    background-color: transparent;
 }
 
 /* estilos product-info */
@@ -342,4 +470,25 @@ border-radius: 10px;
 
 .comment-author-ava>img{
   width: 100%;
+}
+
+.list-group-item img{
+  width: 100%;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #cf2ae7;
+    border-color: #871cd6;
+}
+
+a {
+    color: #cf2ae7;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: #d61cc8;
+    text-decoration: underline;
 }
