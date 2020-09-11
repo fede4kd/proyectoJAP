@@ -231,9 +231,9 @@ margin-right: 25px;
     flex-direction: column;
     width: 100%;
     pointer-events: auto;
-    background-color: #d61cb224;
+    background-color: #cf1cd63b;
     background-clip: padding-box;
-    border: 1px solid #ff04f152;
+    border: 1px solid #9a04ff52;
     border-radius: .3rem;
     outline: 0;
 }
