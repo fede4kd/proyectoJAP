@@ -159,31 +159,130 @@
                 Compra</button>
             </div>
           </form>
-          <!-- Modal -->
-          <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Felicidades!</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  Su comprea se ha realizado correctamente.
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Quedarse en el Carrito</button>
-                  <a class="btn btn-primary" href="index.html">Volver a la Tienda</a>
-                </div>
-              </div>
-            </div>
+          
           </div>
         </div>
       </div>
     </div>
   </div>
+
+            <!-- Button trigger modal -->
+        <button id="botoncito" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Seleccionar Metodo de Pago
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Seleccionar Modo de Pago</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                    <div class="contenedor">
+
+    <!-- Tarjeta -->
+    <section class="tarjeta" id="tarjeta">
+      <div class="delantera">
+        <div class="logo-marca" id="logo-marca">
+          <!-- <img src="img/logos/visa.png" alt=""> -->
+        </div>
+        <img src="img/chip-tarjeta.png" class="chip" alt="">
+        <div class="datos">
+          <div class="grupo" id="numero">
+            <p class="label">Número Tarjeta</p>
+            <p class="numero">#### #### #### ####</p>
+
+          </div>
+          <div class="flexbox">
+            <div class="grupo" id="nombre">
+              <p class="label">Nombre Tarjeta</p>
+              <p class="nombre">________ _______</p>
+            </div>
+
+            <div class="grupo" id="expiracion">
+              <p class="label">Expiracion</p>
+              <p class="expiracion"><span class="mes">MM</span> / <span class="year">AA</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="trasera">
+        <div class="barra-magnetica"></div>
+        <div class="datos">
+          <div class="grupo" id="firma">
+            <p class="label">Firma</p>
+            <div class="firma"><p></p></div>
+          </div>
+          <div class="grupo" id="ccv">
+            <p class="label">CCV</p>
+            <p class="ccv"></p>
+          </div>
+        </div>
+        <p class="leyenda">Esta tarjeta es intransferible. El titular utiliza esta tarjeta de acuerdo con los terminos y condiciones que rigen la emision en la misma.</p>
+        <a href="#" class="link-banco">www.Banco.com</a>
+      </div>
+    </section>
+
+    <!-- Contenedor Boton Abrir Formulario -->
+    <div class="contenedor-btn">
+      <button class="btn-abrir-formulario" id="btn-abrir-formulario">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+
+    <!-- Formulario -->
+    <form action="" id="formulario-tarjeta" class="formulario-tarjeta">
+      <div class="grupo">
+        <label for="inputNumero">Número Tarjeta</label>
+        <input class="form-control form-control-rounded" type="text" id="inputNumero" maxlength="19" autocomplete="off" required>
+        
+      </div>
+      <div class="grupo">
+        <label for="inputNombre">Nombre</label>
+        <input type="text" id="inputNombre" maxlength="19" autocomplete="off" required>
+      </div>
+      <div class="flexbox">
+        <div class="grupo expira">
+          <label for="selectMes">Expiracion</label>
+          <div class="flexbox">
+            <div class="grupo-select">
+              <select name="mes" id="selectMes">
+                <option disabled selected>Mes</option>
+              </select>
+              <i class="fas fa-angle-down"></i>
+            </div>
+            <div class="grupo-select">
+              <select name="year" id="selectYear">
+                <option disabled selected>Año</option>
+              </select>
+              <i class="fas fa-angle-down"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="grupo ccv">
+          <label for="inputCCV">CCV</label>
+          <input type="text" id="inputCCV" maxlength="3" required>
+        </div>
+      </div>
+
+            
+                    </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Guardar y volver</button>
+              </div>
+            </div>
+          </div>
+        </div>      
+
+    </form>
+  </div>
+
 
   <footer class="text-muted">
     <div class="container">
@@ -194,6 +293,7 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
+
 
 
   <div id="spinner-wrapper">
