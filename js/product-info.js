@@ -9,7 +9,7 @@ function showProductInfo() {
 
     dataProd += `
     <!-- Poduct Gallery-->
-    <div class="col-6">
+    <div class="col-xs-12 col-lg-6">
         <div class="product-gallery">
             <div class="gallery-wrapper border" data-pswp-uid="1">
             </div>
@@ -40,7 +40,7 @@ function showProductInfo() {
         </div>
     </div>
     <!-- Product Info-->
-    <div class="col-6">
+    <div class="col-xs-12 col-lg-6">
         <div class="padding-top-2x mt-2 hidden-md-up"></div>
         <!-- Nombre -->
         <h2 class="padding-top-1x text-normal">` + productInfo.name + `</h2>
@@ -66,7 +66,7 @@ function showProductInfo() {
 
     document.getElementById("descProd").innerHTML = dataProd;
 }
-
+// muestro las imagenes del producto
 function showImagesProducts() {
 
     images = productInfo.images;

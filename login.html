@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <!-- Google Script -->
+  <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script> 
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <meta name="google-signin-client_id" content="1001859679659-eeitkuedrmslmu0tdtjbnfa4364qv4d1.apps.googleusercontent.com">
   <title>eMercado - Todo lo que busques está aquí</title>
@@ -54,7 +55,57 @@
 
   
 
+<script>
 
+function onSignIn2(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  
+  localStorage.setItem("email", profile.getEmail());
+  sessionStorage.setItem("imageProfile", profile.getImageUrl());
+  sessionStorage.setItem("name", profile.getName());
+  sessionStorage.setItem("loginGoogle", true);
+  
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  localStorage.setItem("boolean", true);
+  window.location.href="index.html";
+  
+  // The ID token you need to pass to your backend:
+  var id_token = googleUser.getAuthResponse().id_token;
+  console.log("ID Token: " + id_token);
+  
+  let arrayUsers = JSON.parse(localStorage.getItem("arrayUsers"));
+
+  let bandera;
+  let userEmail = profile.getEmail();
+  let nameUser = profile.getName();
+  let imgProfile = profile.getImageUrl(); 
+    
+    for (let i = 0; i < arrayUsers.length; i++) {
+        if (userEmail == arrayUsers[i].email) {
+            bandera = true;
+            break;
+        }
+
+    }
+
+    if (bandera !== true) {
+        arrayUsers.push({
+            nombre: nameUser,
+            email: userEmail,
+            edad: "",
+            telefono: "",
+            imgURL: imgProfile
+        });
+
+        localStorage.setItem("arrayUsers", JSON.stringify(arrayUsers));
+    }
+
+
+  }
+  </script>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/login.js"></script>

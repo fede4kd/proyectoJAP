@@ -53,26 +53,22 @@ function showProductsList() {
             ((descProd.indexOf(cadena) !== -1 || (nombreProd.indexOf(cadena) !== -1)) )){   //si el indexOf devuelve -1 no existe el procuto con ese nombre o desc, con el or indicamos que si existe alguno de los dos muestro el procuto 
                 
                 articulo += `
-                <div class="d-flex container">
-                <div class="col-xl-12 col-lg-8 order-lg-2">
-                    <div class="d-flex list-group-item">
-                    <a class="border-right col-3" href="product-info.html"><div class="imgProduct"><img src="` + product.imgSrc + `"></div></a>
+                <div class="col-sm-6 col-md-4 col-xl-12">
+                    <div class="d-xl-flex list-group-item mproduct">
+                    <a class="border-right col-xl-3" href="product-info.html"><div class="imgProduct"><img src="` + product.imgSrc + `"></div></a>
                         <div class="col-xl-9">
-                            <div class="d-flex w-100 justify-content-between">
+                            <div class="d-lg-flex w-100 justify-content-between ">
                             <a href="product-info.html"><h4 class="mb-1">` + product.name + `</h4></a>
                                 <small class="text-muted">` + product.soldCount + ` Vendidos</small>
                             </div>
                             <div class="productDesc">` + product.description + `</div>
                             <h4>`+ product.currency + ` ` + product.cost +`</h4>
                             <div class="product-buttons">
-                                <button class="btn btn-primary btn-sm" data-toast="" data-toast-type="success"
-                                    data-toast-position="topRight" data-toast-icon="icon-circle-check"
-                                    data-toast-title="Product" data-toast-message="successfuly added to cart!"><i class="fas fa-shopping-cart"></i> Añadir al carrito</button>
+                                <button class="btn btn-primary btn-sm"><i class="fas fa-shopping-cart"></i> Añadir al carrito</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
                 `
          }
 

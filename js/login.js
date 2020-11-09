@@ -1,31 +1,47 @@
 sessionStorage.setItem("boolean", false);
 
-
-function ingresarHomePage(){
-sessionStorage.setItem("email", document.getElementById("emailLogin").value)
-sessionStorage.setItem("boolean", true);
-sessionStorage.setItem("loginGoogle", false);
+// Si no tine ningun dato la variable es de tipo array
+if (localStorage.getItem("arrayUsers") == null) {
+    localStorage.setItem("arrayUsers", '[]')
 }
 
+function ingresarHomePage(){
+localStorage.setItem("email", document.getElementById("emailLogin").value)
+localStorage.setItem("boolean", true);
+sessionStorage.setItem("loginGoogle", false);
 
-function onSignIn2(googleUser) {
-var profile = googleUser.getBasicProfile();
+newUser();
+}
 
-sessionStorage.setItem("email", profile.getEmail());
-sessionStorage.setItem("imageProfile", profile.getImageUrl());
-sessionStorage.setItem("loginGoogle", true);
+function newUser(){
+    
+    // Paso los datos del localStorge que estan en strig a una lista de objetos
+    let arrayUsers = JSON.parse(localStorage.getItem("arrayUsers"));
+    
+    let bandera;
+    // Obtengo el mail que ingresan en el login
+    let userEmail = document.getElementById("emailLogin").value;
+    
+    for (let i = 0; i < arrayUsers.length; i++) {
+        if (userEmail == arrayUsers[i].email) {
+            bandera = true;
+            break;
+        }
 
-console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-console.log('Name: ' + profile.getName());
-console.log('Image URL: ' + profile.getImageUrl());
-console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-sessionStorage.setItem("boolean", true);
-window.location.href="index.html";
+    }
+    // Si la bandera es diferente de True ingreso un nuevo usuario
+    if (bandera !== true) {
+        arrayUsers.push({
+            nombre: "",
+            email: userEmail,
+            edad: "",
+            telefono: "",
+            imgURL: "img/Avatar2.png"
+    
+        });
 
-// The ID token you need to pass to your backend:
-var id_token = googleUser.getAuthResponse().id_token;
-console.log("ID Token: " + id_token);
-
+        localStorage.setItem("arrayUsers", JSON.stringify(arrayUsers));
+    }
 }
 
 
