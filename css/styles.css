@@ -156,6 +156,20 @@ a.custom-card:hover {
   margin-bottom: 10px;
 }
 
+.avatar-perfil {
+  height: 100px;
+  width: 100px;
+  margin-top: -90px;
+  margin-bottom: 10px;
+  border-radius: 50px;
+}
+
+.avatar-perfil-modal{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
 .heatherLogin{
   height: 20%;
   width: 55%;

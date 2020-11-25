@@ -11,6 +11,7 @@ function showDataUser() {
   for (let i = 0; i < arrayUsers.length; i++) {
     
     // se compara el mail que se ingresa en el imput del login con los mails de los usuarios guardados, si un email es igual se muestran los datos del usuario.
+    if (emailUser == arrayUsers[i].email) {
       email = arrayUsers[i].email
       imgProfile = arrayUsers[i].imgURL
       name = arrayUsers[i].nombre
@@ -75,7 +76,7 @@ var datosCuenta = `
     document.getElementById("account").innerHTML = datosCuenta; // agrego los datos del usuario
     document.getElementById("imgPerfilModal").innerHTML = `<img src="`+ imgProfile +`" class="avatar-perfil-modal">` // agrego la imagen del usuario en la pagina de mi perfil
     document.getElementById("user").innerHTML = `<img src= "` + imgProfile + `" height="46px" width="46px" style="border-radius: 50%"></img>`  //agrego la imagen del usuario en menu de navegacion
-
+}
 
 function uploadIMG() {
   let img;

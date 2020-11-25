@@ -149,7 +149,7 @@ function removeProducts( b ){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 
-    getJSONData("https://japdevdep.github.io/ecommerce-api/cart/654.json").then(function(resultObj){ //Llamo al json PRODUCTOS_URL
+    getJSONData("http://localhost:3000/Cart").then(function(resultObj){ //Llamo al json PRODUCTOS_URL
         if (resultObj.status === "ok") {
             cart = resultObj.data;
 

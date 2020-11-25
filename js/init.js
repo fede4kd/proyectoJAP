@@ -1,11 +1,19 @@
-const CATEGORIES_URL = "https://japdevdep.github.io/ecommerce-api/category/all.json";
-const PUBLISH_PRODUCT_URL = "https://japdevdep.github.io/ecommerce-api/product/publish.json";
-const CATEGORY_INFO_URL = "https://japdevdep.github.io/ecommerce-api/category/1234.json";
-const PRODUCTS_URL = "https://japdevdep.github.io/ecommerce-api/product/all.json";
-const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678.json";
-const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
-const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
-const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
+const CATEGORIES_URL = "http://localhost:3000/categorys";
+const PRODUCTS_URL = "http://localhost:3000/Products";
+const PUBLISH_PRODUCT_URL = "http://localhost:3000/Publish";
+const PRODUCT_INFO_URL = "http://localhost:3000/ProductInfo";
+const PRODUCT_INFO_COMMENTS_URL = "http://localhost:3000/Comments";
+const CART_INFO_URL = "http://localhost:3000/Cart";
+const CART_BUY_URL = "http://localhost:3000/CartBuy"
+const CATEGORY_INFO_URL = "http://localhost:3000/CatInfo";
+//const CATEGORIES_URL = "https://japdevdep.github.io/ecommerce-api/category/all.json";
+//const PUBLISH_PRODUCT_URL = "https://japdevdep.github.io/ecommerce-api/product/publish.json";
+//const CATEGORY_INFO_URL = "https://japdevdep.github.io/ecommerce-api/category/1234.json";
+//const PRODUCTS_URL = "https://japdevdep.github.io/ecommerce-api/product/all.json";
+//const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678.json";
+//const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
+//const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
+//const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
 var showSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "block";
@@ -96,4 +104,24 @@ document.addEventListener("DOMContentLoaded", function (e) {
   
 
   document.getElementById("user").innerHTML = imgAvatar;
+});
+
+app.post('/RutaFormPost', (req, res) => {
+  console.log(req.body.correo);
+  
+  res.json(
+      {
+              mesage: "Se escribio",
+              nombre: req.body.nombre,
+              edad: req.body.edad
+      }
+  );
+  texto += "\n" + "Nombre " + req.body.nombre + " Edad " + req.body.edad;
+  fs.writeFile('nombreArchivo.txt', texto, {encoding: 'utf-8'}, function(error){
+      if(error){
+          console.log(`Error: ${error}`);
+      }else{
+          console.log('La escritura se ha realizado satisfactoriamente.');
+      }
+  });
 });
